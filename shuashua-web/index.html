@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--for iOS-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <!--for iOS End-->
+    <!--Flexible-->
+    <script src="libs/flexible.js"></script>
+    <link type="text/css" rel="stylesheet/less" href="css/global.less">
+    <link type="text/css" rel="stylesheet/less" href="css/index.less">
+    <script src="libs/less.min.js"></script>
+
+    <title>首页</title>
+</head>
+<body>
+
+<form id="form" action="/login" method="post">
+    <input name="username">
+    <input name="password" type="password">
+    <input name="foo.bar" type="text">
+    <input type="submit" value="登录">
+</form>
+
+<script src="libs/jquery-3.3.1.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script>
+    $("#form").apiForm(function (res) {
+        if (res.code === api.code.SUCCESS) {
+
+        } else {
+
+        }
+    }, function (data) {
+        if (data.username == "") {
+            alert("用户名不能为空");
+            return false;
+        }
+        data.username = "aaa" + data.username;
+    }, {
+        error: function () {
+
+        }
+    });
+
+    //设置缓存
+    utils.localStorage("foo", 'bar');
+    //获取缓存
+    var foo = utils.localStorage("foo");
+    //GET请求
+    api.get("/userInfo", {}, function (res, cache) {
+        if (cache === 'cache') {
+            //是缓存
+        }
+        if (res.code === api.code.SUCCESS) {
+            var data = res.data;
+            var userInfo = data.userInfo;
+        } else {
+
+        }
+    }, {
+        cache: true,
+        // cache: 'cache' //只取缓存，不实际请求
+        loading: true
+    });
+    api.post("/login", {
+        username: "admin",
+        password: 'admin'
+    }, function (res) {
+
+    });
+    // api.showLoading();
+    // api.hideLoading();
+</script>
+</body>
+</html>
