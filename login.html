@@ -30,64 +30,6 @@
     点击上传 <input type="file" id="file" name="avatar" accept="image/jpeg, image/gif,image/jpg"/>
 </form>
 <script>
-    plus.nativeUI.actionSheet({cancel: "取消", buttons: [{title: "拍照上传"}, {title: "相册选择"}]}, function (e) {
-        if (e.index == 0) return;
-        if (e.index == 1) {
-            plus.camera.getCamera(1).captureImage(function (p) {
-                //上传图片
-                avatarUpload(plus.io.convertLocalFileSystemURL(p));
-            });
-        } else if (e.index == 2) {
-            plus.gallery.pick(function (p) {
-                avatarUpload(p);
-            }, {
-                filter: "image",
-                multiple: false //单选图片（true：多选图片）
-            })
-        }
-    });
-
-    //多选图片
-    function galleryImgs() {
-        // 从相册中选择图片
-        plus.gallery.pick(function (e) {
-            for (var i in e.files) {
-                console.log(e.files[i]);//选取的图片数组
-            }
-        }, function (e) {
-            mui.toast("取消选择图片");
-        }, {
-            filter: "image",
-            multiple: true
-        });
-    }
-
-    /**
-     * @description上传头像
-     * @param avatar 图片路径
-     * */
-    function avatarUpload(avatar) {
-        var task = gettask('接口url', function (t, status) {//创建上传任务
-            if (status == 200) {//返回状态
-                var data = JSON.parse(t.responseText || '{}');
-                mui.toast(data.msg || '上传成功');
-                avatarObj.src = avatar;
-            } else {
-                _.toast("保存失败，请重试");
-            }
-        });
-        task.addData('token', token);//后台接口设定的参数
-        task.addData('privateToken', privateToken);//后台接口设定的参数
-        task.addFile(avatar, {key: "avatar"});//所上传文件
-        task.start();//开始上传任务
-    }
-
-    //创建上传任务
-    function gettask(server, callback) {
-        return plus.uploader.createUpload("服务器地址" + server, {
-            method: "POST"
-        }, callback);
-    }
 
     //点击上传头像
     $("#file").trigger('click');//触发选择上传文件
