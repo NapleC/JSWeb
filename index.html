@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet/less" href="css/global.less">
     <link type="text/css" rel="stylesheet/less" href="css/index.less">
     <script src="libs/less.min.js"></script>
+    <script src="libs/jquery-3.3.1.js"></script>
     <!--MUI -->
     <script src="js/mui.js"></script>
     <link href="css/mui.css" rel="stylesheet"/>
@@ -44,6 +45,47 @@
 </nav>
 <div class="mui-content">
     <div id="tabbar" class="mui-control-content mui-active">
+
+        <div id="banner" class="mui-slider">
+            <!--首页轮播-->
+            <div class="mui-slider-group mui-slider-loop">
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="http://pic1.win4000.com/wallpaper/3/56f508b24ef18.jpg">
+                    </a>
+                </div>
+                <!-- 第一张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://pic1.win4000.com/wallpaper/3/56f508af0c640.jpg">
+                    </a>
+                </div>
+                <!-- 第二张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://pic1.win4000.com/wallpaper/3/56f508b0d1d65.jpg">
+                    </a>
+                </div>
+                <!-- 第三张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="http://pic1.win4000.com/wallpaper/3/56f508b24ef18.jpg">
+                    </a>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="http://pic1.win4000.com/wallpaper/3/56f508af0c640.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+
+        </div>
         <div class="title">这是div模式选项卡中的第1个子页面.</div>
         <div class="title">何谓div模式的选项卡？
             其实就是通过DIV模拟一个独立页面，通过DIV的显示、隐藏模拟不同页面的切换，典型的SPA模式；
@@ -57,124 +99,118 @@
     <div id="tabbar-with-chat" class="mui-control-content">
         <div class="title">这是div模式选项卡中的第2个子页面，该页面展示一个消息列表</div>
 
-        <ul class="mui-table-view mui-table-view-chevron">
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 1</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 2</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 3</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 4</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 5</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 6</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 7</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 8</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 9</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 10</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 11</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 12</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 13</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 14</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 15</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 16</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 17</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 18</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 19</a></li>
-            <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 20</a></li>
-        </ul>
+        <!--<ul class="mui-table-view mui-table-view-chevron">-->
+        <!--<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item Other</a></li>-->
+        <!--</ul>-->
+
+        <!--聊天列表-->
+        <div id="chatItemWrapper" class="mui-slider pay-order-group-padding">
+            <!--<div class="mui-slider-group">-->
+            <div id="chatListItem">
+                <ul class="mui-table-view mui-table-view-chevron">
+                </ul>
+            </div>
+            <!--</div>-->
+        </div>
 
     </div>
     <div id="tabbar-with-contact" class="mui-control-content">
         <div class="title">这是div模式选项卡中的第3个子页面，该页面展示一个通讯录示例.</div>
-        <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
-            <li class="mui-table-view-cell">
-                <div class="mui-slider-cell">
-                    <div class="oa-contact-cell mui-table">
-                        <div class="oa-contact-avatar mui-table-cell">
-                            <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
-                        </div>
-                        <div class="oa-contact-content mui-table-cell">
-                            <div class="mui-clearfix">
-                                <h4 class="oa-contact-name">叶文洁</h4>
-                                <span class="oa-contact-position mui-h6">董事长</span>
+
+        <div id="ItemWrapper" class="mui-slider pay-order-group-padding">
+            <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-cell">
+                        <div class="oa-contact-cell mui-table">
+                            <div class="oa-contact-avatar mui-table-cell">
+                                <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
                             </div>
-                            <p class="oa-contact-email mui-h6">
-                                yewenjie@sina.com
-                            </p>
+                            <div class="oa-contact-content mui-table-cell">
+                                <div class="mui-clearfix">
+                                    <h4 class="oa-contact-name">叶文洁</h4>
+                                    <span class="oa-contact-position mui-h6">董事长</span>
+                                </div>
+                                <p class="oa-contact-email mui-h6">
+                                    yewenjie@sina.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="mui-table-view-cell">
-                <div class="mui-slider-cell">
-                    <div class="oa-contact-cell mui-table">
-                        <div class="oa-contact-avatar mui-table-cell">
-                            <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
-                        </div>
-                        <div class="oa-contact-content mui-table-cell">
-                            <div class="mui-clearfix">
-                                <h4 class="oa-contact-name">艾AA</h4>
-                                <span class="oa-contact-position mui-h6">总经理</span>
+                </li>
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-cell">
+                        <div class="oa-contact-cell mui-table">
+                            <div class="oa-contact-avatar mui-table-cell">
+                                <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
                             </div>
-                            <p class="oa-contact-email mui-h6">
-                                aaa@163.com
-                            </p>
+                            <div class="oa-contact-content mui-table-cell">
+                                <div class="mui-clearfix">
+                                    <h4 class="oa-contact-name">艾AA</h4>
+                                    <span class="oa-contact-position mui-h6">总经理</span>
+                                </div>
+                                <p class="oa-contact-email mui-h6">
+                                    aaa@163.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="mui-table-view-cell">
-                <div class="mui-slider-cell">
-                    <div class="oa-contact-cell mui-table">
-                        <div class="oa-contact-avatar mui-table-cell">
-                            <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
-                        </div>
-                        <div class="oa-contact-content mui-table-cell">
-                            <div class="mui-clearfix">
-                                <h4 class="oa-contact-name">罗辑</h4>
-                                <span class="oa-contact-position mui-h6">员工</span>
+                </li>
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-cell">
+                        <div class="oa-contact-cell mui-table">
+                            <div class="oa-contact-avatar mui-table-cell">
+                                <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
                             </div>
-                            <p class="oa-contact-email mui-h6">
-                                luoji@126.com
-                            </p>
+                            <div class="oa-contact-content mui-table-cell">
+                                <div class="mui-clearfix">
+                                    <h4 class="oa-contact-name">罗辑</h4>
+                                    <span class="oa-contact-position mui-h6">员工</span>
+                                </div>
+                                <p class="oa-contact-email mui-h6">
+                                    luoji@126.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="mui-table-view-cell">
-                <div class="mui-slider-cell">
-                    <div class="oa-contact-cell mui-table">
-                        <div class="oa-contact-avatar mui-table-cell">
-                            <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
-                        </div>
-                        <div class="oa-contact-content mui-table-cell">
-                            <div class="mui-clearfix">
-                                <h4 class="oa-contact-name">云天明</h4>
-                                <span class="oa-contact-position mui-h6">员工</span>
+                </li>
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-cell">
+                        <div class="oa-contact-cell mui-table">
+                            <div class="oa-contact-avatar mui-table-cell">
+                                <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
                             </div>
-                            <p class="oa-contact-email mui-h6">
-                                ytm@163.com
-                            </p>
+                            <div class="oa-contact-content mui-table-cell">
+                                <div class="mui-clearfix">
+                                    <h4 class="oa-contact-name">云天明</h4>
+                                    <span class="oa-contact-position mui-h6">员工</span>
+                                </div>
+                                <p class="oa-contact-email mui-h6">
+                                    ytm@163.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="mui-table-view-cell">
-                <div class="mui-slider-cell">
-                    <div class="oa-contact-cell mui-table">
-                        <div class="oa-contact-avatar mui-table-cell">
-                            <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
-                        </div>
-                        <div class="oa-contact-content mui-table-cell">
-                            <div class="mui-clearfix">
-                                <h4 class="oa-contact-name">史强</h4>
-                                <span class="oa-contact-position mui-h6">员工</span>
+                </li>
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-cell">
+                        <div class="oa-contact-cell mui-table">
+                            <div class="oa-contact-avatar mui-table-cell">
+                                <img src="https://www.qq745.com/uploads/allimg/meinv/01/1942/sf2jklmqlb1.jpg"/>
                             </div>
-                            <p class="oa-contact-email mui-h6">
-                                shiqiang@gmail.com
-                            </p>
+                            <div class="oa-contact-content mui-table-cell">
+                                <div class="mui-clearfix">
+                                    <h4 class="oa-contact-name">史强</h4>
+                                    <span class="oa-contact-position mui-h6">员工</span>
+                                </div>
+                                <p class="oa-contact-email mui-h6">
+                                    shiqiang@gmail.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
     <div id="tabbar-with-mine" class="mui-control-content">
         <div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
@@ -211,5 +247,30 @@
         </ul>
     </div>
 </div>
+<!-- 模板 begin -->
+<script type="text/template" id="tmpChat">
+
+    <li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 1</a></li>
+
+</script>
+<!-- 模板 eng-->
+<script>
+
+    //轮播切换
+    mui("#banner").slider({
+        interval: 2000
+    });
+    var millList = ["张三发来一条信息", "里斯发来一张图片", "王五发来一个红包",
+        "刘谦给你发来一个语音聊天请求", "琪琪发来一个视频请求", "你发了一张图片", "你谁啊"];
+    var $tmpChat = $("#tmpChat"),
+        $privateMills = $("#chatListItem > ul");
+    $privateMills.empty();
+    millList.forEach(function (mill) {
+        var $privateChat = $($tmpChat.html())
+            .find(".mui-navigate-right").text(mill).end()
+            .data("machine", mill)
+            .appendTo($privateMills);
+    });
+</script>
 </body>
 </html>

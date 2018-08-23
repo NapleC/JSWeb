@@ -1,3 +1,15 @@
+@import "functions";
+//底部导航
+.mui-bar-tab {
+  .mui-tab-item {
+    .app-icon {
+      width: 0.587rem;
+      height: 0.587rem;
+      position: static;
+    }
+  }
+}
+
 .title{
   margin: 20px 15px 10px;
   color: #6d6d72;
@@ -29,4 +41,162 @@
 }
 .oa-contact-name, oa-contact-position {
   float: left;
+}
+
+//首页
+#home {
+  padding: 0 0.3733rem;
+
+  //Banner
+  #banner {
+
+    .mui-slider-item img {
+      height: 4.53rem;
+      border-radius: 0.27rem;
+    }
+
+    .mui-slider-indicator {
+      position: static;
+      margin-top: 0.27rem;
+      line-height: 1;
+
+      .mui-indicator {
+        width: 0.16rem;
+        height: 0.16rem;
+        margin: 0 0.13rem;
+        background: @secondary-font-color;
+        box-shadow: none;
+        &.mui-active {
+          //background: @primary-assist-color;
+          border-radius: 0;
+          border: none;
+          background: url("../images/index/banner_checked.png") no-repeat center;
+          background-size: contain;
+          width: 0.2133rem;
+          height: 0.2133rem;
+        }
+      }
+    }
+  }
+
+  //首页矿机列表
+  #homeMachineWrapper {
+    .mui-control-item {
+      position: relative;
+      line-height: 1;
+      padding: 0.2267rem 0 0.44rem 0;
+      .tip {
+        font-size: @font-size-xs;
+        position: absolute;
+        left: 0;
+        bottom: 0.12rem;
+        width: 100%;
+        color: @secondary-font-color;
+      }
+    }
+    > .mui-slider-progress-bar {
+      background: url("../images/index/slider-progress-bar.png") no-repeat center;
+      background-size: 2.6667rem;
+      height: 1px;
+      transition: transform 200ms;
+    }
+    > .mui-slider-group {
+      transition: transform 200ms;
+      > .mui-control-content {
+        > ul {
+          list-style: none;
+          padding: 0;
+          > li {
+            background: url("../images/index/home-machine-bg.png");
+            background-size: 100% 100%;
+            height: 3.7867rem;
+            position: relative;
+            margin: 0.2667rem 0;
+            .machine-image {
+              width: 2.9333rem;
+              height: 2.9333rem;
+              margin-top: 0.4267rem;
+              margin-left: 0.2667rem;
+            }
+            .machine-tag {
+              width: 0.6667rem;
+              height: 0.6667rem;
+              position: absolute;
+              top: 1px;
+              left: 1px;
+              background-size: contain;
+              &.tag-hot {
+                background-image: url("../images/index/tag-hot.png");
+              }
+              &.tag-new {
+                background-image: url("../images/index/tag-new.png");
+              }
+            }
+            .machine-name {
+              position: absolute;
+              top: 0.4933rem;
+              left: 3.4667rem;
+              font-size: @font-size-s;
+            }
+            .machine-desc {
+              position: absolute;
+              left: 3.4667rem;
+              top: 1.7333rem;
+              right: 0.2667rem;
+              font-size: @font-size-s;
+              color: @secondary-font-color;
+              word-break: break-all;
+              overflow: hidden;
+              -ms-text-overflow: ellipsis;
+              text-overflow: ellipsis;
+              height: @font-size-s * 1.2 * 2;
+            }
+            .machine-price {
+              position: absolute;
+              bottom: 0.6133rem;
+              left: 3.4667rem;
+              font-size: @font-size-m;
+              color: @secondary-assist-color;
+            }
+            .machine-numbox {
+              position: absolute;
+              right: 0.2667rem;
+              bottom: 0.4267rem;
+              background: none;
+              border-radius: 0;
+              border: none;
+              width: 2.4547rem;
+              height: 0.64rem;
+              padding: 0 0.6933rem;
+              > .mui-numbox-btn-minus {
+                width: 0.64rem;
+                height: 0.64rem;
+                background: url("../images/index/btn-minus.png");
+                background-size: 100% 100%;
+                border-radius: 0;
+              }
+              > .mui-numbox-btn-plus {
+                width: 0.64rem;
+                height: 0.64rem;
+                background: url("../images/index/btn-plus.png");
+                background-size: 100% 100%;
+                border-radius: 0;
+              }
+              > .mui-numbox-input {
+                background: url("../images/index/machine-number.png");
+                background-size: 100% 100%;
+                border: none !important;
+                font-size: @font-size-m;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pay-order-group {
+    bottom: 1.31rem;
+  }
+
 }
